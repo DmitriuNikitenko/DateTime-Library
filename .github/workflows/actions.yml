@@ -27,12 +27,12 @@ jobs:
       - name: Autograding
         uses: amcp-pit/autograding@v1
 
-- name: Install
-  run: sudo apt-get update && sudo apt-get install -y valgrind
+      - name: Install
+        run: sudo apt-get update && sudo apt-get install -y valgrind
 
-- name: Memory leaks
-  run: |
-    valgrind --tool=memcheck --leak-check=full --undef-value-errors=no --error-exitcode=111 ./datetime
+      - name: Memory leaks
+        run: |
+          valgrind --tool=memcheck --leak-check=full --undef-value-errors=no --error-exitcode=111 ./datetime
 
       - name: Code linting
         uses: amcp-pit/cpp-linter@v1
